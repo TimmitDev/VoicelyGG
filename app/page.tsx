@@ -39,14 +39,11 @@ export default async function Home({ searchParams }: HomePageProps) {
           VoicelyGG
         </h1>
         <p className="mt-3 text-base tracking-[0.2em] text-cyan-100/85 sm:text-lg">
-          USERNAME CLAIM PORTAL
+          LAUNCHING SOON, CLAIM YOUR USERNAME!
         </p>
       </header>
 
       <section className="game-panel mx-auto w-full max-w-xl rounded-2xl p-6 sm:p-8">
-        <p className="text-sm text-slate-200">
-          Claim snel je naam. Elke username kan maar 1x worden geclaimd.
-        </p>
 
         <Banner status={status} message={message} />
 
