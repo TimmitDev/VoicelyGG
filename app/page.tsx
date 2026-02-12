@@ -65,7 +65,7 @@ export default async function Home({ searchParams }: HomePageProps) {
               minLength={3}
               maxLength={20}
               pattern="[A-Za-z0-9_]{3,20}"
-              placeholder="bijv. timwa"
+              placeholder="Username"
               className="h-11 w-full rounded-md border border-cyan-300/35 bg-slate-950/70 px-3 text-base text-slate-100 outline-none transition focus:border-cyan-200 focus:ring-2 focus:ring-cyan-300/40"
             />
           </label>
@@ -78,7 +78,7 @@ export default async function Home({ searchParams }: HomePageProps) {
               type="email"
               name="email"
               required
-              placeholder="naam@voorbeeld.nl"
+              placeholder="E-mail"
               className="h-11 w-full rounded-md border border-cyan-300/35 bg-slate-950/70 px-3 text-base text-slate-100 outline-none transition focus:border-cyan-200 focus:ring-2 focus:ring-cyan-300/40"
             />
           </label>
@@ -91,13 +91,6 @@ export default async function Home({ searchParams }: HomePageProps) {
             Claim Username
           </button>
         </form>
-
-        <p className="mt-6 border-t border-cyan-300/20 pt-4 text-sm text-slate-300">
-          Admin portal:{" "}
-          <Link className="font-semibold text-cyan-200 hover:text-cyan-100" href="/admin">
-            /admin
-          </Link>
-        </p>
       </section>
     </main>
   );
