@@ -36,7 +36,7 @@ export default async function Home({ searchParams }: HomePageProps) {
     <main className="mx-auto flex min-h-screen w-full max-w-5xl flex-col px-4 py-10 sm:px-8">
       <header className="mb-8 text-center">
         <h1 className="game-title text-5xl font-extrabold leading-none text-cyan-200 drop-shadow-[0_0_18px_rgba(34,211,238,0.45)] sm:text-7xl">
-          VoicelyGG
+          Voicely.GG
         </h1>
         <p className="mt-3 text-base tracking-[0.2em] text-cyan-100/85 sm:text-lg">
           LAUNCHING SOON, CLAIM YOUR USERNAME!
