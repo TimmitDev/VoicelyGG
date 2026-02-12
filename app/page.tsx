@@ -33,33 +33,33 @@ export default async function Home({ searchParams }: HomePageProps) {
   const databaseConfigured = isDatabaseConfigured();
 
   return (
-    <main className="mx-auto flex min-h-screen w-full max-w-4xl flex-col px-4 py-10 sm:px-8">
-      <section className="mx-auto mt-10 w-full max-w-2xl rounded-2xl border border-card-border bg-card p-6 shadow-2xl shadow-slate-950/50 backdrop-blur sm:p-8">
-        <p className="mb-4 text-xs font-medium uppercase tracking-[0.28em] text-cyan-200">
+    <main className="mx-auto flex min-h-screen w-full max-w-5xl flex-col px-4 py-10 sm:px-8">
+      <header className="mb-8 text-center">
+        <h1 className="game-title text-5xl font-extrabold leading-none text-cyan-200 drop-shadow-[0_0_18px_rgba(34,211,238,0.45)] sm:text-7xl">
           VoicelyGG
-        </p>
-        <h1 className="text-3xl font-semibold tracking-tight text-slate-100 sm:text-4xl">
-          Claim je username
         </h1>
-        <p className="mt-3 text-sm text-slate-300 sm:text-base">
-          Vul je gewenste username en e-mailadres in. Elke username kan maar
-          een keer geclaimd worden.
+        <p className="mt-3 text-base tracking-[0.2em] text-cyan-100/85 sm:text-lg">
+          USERNAME CLAIM PORTAL
+        </p>
+      </header>
+
+      <section className="game-panel mx-auto w-full max-w-xl rounded-2xl p-6 sm:p-8">
+        <p className="text-sm text-slate-200">
+          Claim snel je naam. Elke username kan maar 1x worden geclaimd.
         </p>
 
         <Banner status={status} message={message} />
 
         {!databaseConfigured ? (
-          <div className="mt-6 rounded-md border border-amber-400/50 bg-amber-500/15 px-4 py-3 text-sm text-amber-100">
-            Database is nog niet geconfigureerd. Zet{" "}
-            <code className="font-mono">DATABASE_URL</code> (of{" "}
-            <code className="font-mono">POSTGRES_URL</code>) in je environment
-            variables.
+          <div className="mt-5 rounded-md border border-amber-300/60 bg-amber-500/15 px-4 py-3 text-sm text-amber-100">
+            Database mist. Zet <code className="font-mono">DATABASE_URL</code>{" "}
+            of <code className="font-mono">POSTGRES_URL</code>.
           </div>
         ) : null}
 
-        <form action="/api/claims" method="POST" className="mt-6 space-y-5">
+        <form action="/api/claims" method="POST" className="mt-6 space-y-4">
           <label className="block">
-            <span className="mb-2 block text-sm font-medium text-slate-200">
+            <span className="mb-1.5 block text-sm uppercase tracking-wider text-cyan-100/90">
               Username
             </span>
             <input
@@ -69,43 +69,38 @@ export default async function Home({ searchParams }: HomePageProps) {
               maxLength={20}
               pattern="[A-Za-z0-9_]{3,20}"
               placeholder="bijv. timwa"
-              className="w-full rounded-md border border-slate-700 bg-slate-900/70 px-3 py-2 text-slate-100 outline-none transition focus:border-cyan-300 focus:ring-2 focus:ring-cyan-300/40"
+              className="h-11 w-full rounded-md border border-cyan-300/35 bg-slate-950/70 px-3 text-base text-slate-100 outline-none transition focus:border-cyan-200 focus:ring-2 focus:ring-cyan-300/40"
             />
-            <span className="mt-2 block text-xs text-slate-400">
-              Alleen letters, cijfers en underscore. 3 tot 20 tekens.
-            </span>
           </label>
 
           <label className="block">
-            <span className="mb-2 block text-sm font-medium text-slate-200">
-              E-mailadres
+            <span className="mb-1.5 block text-sm uppercase tracking-wider text-cyan-100/90">
+              Email
             </span>
             <input
               type="email"
               name="email"
               required
               placeholder="naam@voorbeeld.nl"
-              className="w-full rounded-md border border-slate-700 bg-slate-900/70 px-3 py-2 text-slate-100 outline-none transition focus:border-cyan-300 focus:ring-2 focus:ring-cyan-300/40"
+              className="h-11 w-full rounded-md border border-cyan-300/35 bg-slate-950/70 px-3 text-base text-slate-100 outline-none transition focus:border-cyan-200 focus:ring-2 focus:ring-cyan-300/40"
             />
           </label>
 
           <button
             type="submit"
             disabled={!databaseConfigured}
-            className="inline-flex h-11 w-full items-center justify-center rounded-md bg-cyan-400 px-4 text-sm font-semibold text-slate-950 transition hover:bg-cyan-300 disabled:cursor-not-allowed disabled:bg-slate-600 disabled:text-slate-300"
+            className="mt-2 inline-flex h-12 w-full items-center justify-center rounded-md border border-cyan-200/30 bg-cyan-300 px-4 font-display text-base font-bold uppercase tracking-wider text-slate-950 transition hover:bg-cyan-200 disabled:cursor-not-allowed disabled:border-slate-500 disabled:bg-slate-700 disabled:text-slate-300"
           >
-            Username claimen
+            Claim Username
           </button>
         </form>
 
-        <div className="mt-8 border-t border-slate-700 pt-4 text-sm text-slate-300">
-          Claims bekijken? Open{" "}
+        <p className="mt-6 border-t border-cyan-300/20 pt-4 text-sm text-slate-300">
+          Admin portal:{" "}
           <Link className="font-semibold text-cyan-200 hover:text-cyan-100" href="/admin">
             /admin
           </Link>
-          . Als <code className="font-mono">ADMIN_SECRET</code> is ingesteld,
-          gebruik dan <code className="font-mono">?key=JOUW_SECRET</code>.
-        </div>
+        </p>
       </section>
     </main>
   );
